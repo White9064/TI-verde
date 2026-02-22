@@ -5,14 +5,36 @@
 <title>Dashboard</title>
 <link rel="stylesheet" href="css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script></head>
+<script>
+const ctx = document.getElementById('graficoTI');
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Conhecem TI Verde', 'Já ouviram falar', 'Não conhecem'],
+        datasets: [{
+            label: 'Respostas (%)',
+            data: [45, 35, 20],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100
+            }
+        }
+    }
+});
+</script><body>
 
 <header>
 <h1>Dashboard – Pesquisa TI Verde</h1>
 </header>
 
-<main>
+<main><canvas id="graficoTI"></canvas>
 <section><section>
 <h2>Análise e Reflexão dos Resultados</h2>
 
