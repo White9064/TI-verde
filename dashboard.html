@@ -1,58 +1,121 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<title>Dashboard</title>
-<link rel="stylesheet" href="css/style.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script></head>
-<script>
-const ctx = document.getElementById('graficoTI');
-new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Conhecem TI Verde', 'Já ouviram falar', 'Não conhecem'],
-        datasets: [{
-            label: 'Respostas (%)',
-            data: [45, 35, 20],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: true,
-        scales: {
-            y: {
-                beginAtZero: true,
-                max: 100
-            }
+    <meta charset="UTF-8">
+    <title>Dashboard - TI Verde</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f6f9;
         }
-    }
-});
-</script><body>
+
+        header {
+            background-color: #2e7d32;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #2e7d32;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        canvas {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
 
 <header>
-<h1>Dashboard – Pesquisa TI Verde</h1>
+    <h1>Dashboard – Resultados da Pesquisa sobre TI Verde</h1>
 </header>
 
-<main><canvas id="graficoTI"></canvas>
-<section><section>
-<h2>Análise e Reflexão dos Resultados</h2>
+<main>
 
-<p>A análise das respostas obtidas demonstra que ainda há necessidade de ampliar a conscientização sobre descarte correto de lixo eletrônico e sobre o ODS 12.</p>
+    <div class="card">
+        <h2>📋 Sobre a Pesquisa</h2>
+        <p>
+            A pesquisa foi aplicada de forma online com o objetivo de identificar o nível de conhecimento da comunidade sobre o conceito de TI Verde.
+            Os dados apresentados abaixo representam uma amostra ilustrativa utilizada para análise acadêmica.
+        </p>
+    </div>
 
-<p>Os dados reforçam a importância de ações extensionistas que promovam educação ambiental na área de Tecnologia da Informação.</p>
+    <div class="card">
+        <h2>📊 Resultados Obtidos</h2>
+        <canvas id="graficoTI"></canvas>
+    </div>
 
-<p>O dashboard foi desenvolvido para organizar e visualizar os resultados da pesquisa.</p>
+    <div class="card">
+        <h2>📈 Análise dos Dados</h2>
+        <p>
+            Observa-se que 45% dos participantes afirmam conhecer o conceito de TI Verde.
+            Outros 35% já ouviram falar, mas não possuem conhecimento aprofundado.
+            Já 20% declararam não conhecer o tema.
+        </p>
+        <p>
+            Esses dados indicam que, apesar de parte da população ter algum contato com o assunto,
+            ainda existe necessidade de ampliar ações de conscientização e educação ambiental
+            relacionadas à Tecnologia da Informação sustentável.
+        </p>
+    </div>
 
-</section><canvas id="g1"></canvas></section>
-<section><canvas id="g2"></canvas></section>
-<section><canvas id="g3"></canvas></section>
 </main>
 
-<footer>
-<p>Visualização de Dados</p>
-</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const ctx = document.getElementById('graficoTI');
 
-<script src="js/dashboard.js"></script>
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Conhecem TI Verde', 'Já ouviram falar', 'Não conhecem'],
+            datasets: [{
+                label: 'Porcentagem (%)',
+                data: [45, 35, 20],
+                backgroundColor: ['#2e7d32', '#66bb6a', '#a5d6a7']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100
+                }
+            }
+        }
+    });
+});
+</script>
+
 </body>
 </html>
