@@ -2,13 +2,44 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Dashboard</title>
+<title>Dashboard - Green Tech</title>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <style>
-body { font-family: Arial; background: #f4f9f4; text-align: center; }
-canvas { max-width: 600px; margin: 30px auto; }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 40px;
+    color: #00ff88;
+}
+
+canvas {
+    max-width: 600px;
+    margin: 40px auto;
+    display: block;
+}
+
+section {
+    max-width: 800px;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 25px;
+    border-radius: 15px;
+}
+
+h2 {
+    color: #1de9b6;
+}
 </style>
 </head>
+
 <body>
 
 <h1>📊 Resultados da Pesquisa</h1>
@@ -17,23 +48,31 @@ canvas { max-width: 600px; margin: 30px auto; }
 
 <script>
 const ctx = document.getElementById('grafico');
+
 new Chart(ctx, {
-type: 'bar',
-data: {
-labels: ['Conhecia TI Verde', 'Não Conhecia'],
-datasets: [{
-label: 'Participantes',
-data: [2, 3],
-}]
-}
+    type: 'bar',
+    data: {
+        labels: ['Conheciam TI Verde', 'Não Conheciam'],
+        datasets: [{
+            label: 'Participantes',
+            data: [2, 3],
+            backgroundColor: ['#00ff88', '#1de9b6']
+        }]
+    }
 });
 </script>
 
 <section>
-<h2>Análise</h2>
+<h2>📈 Análise dos Resultados</h2>
 <p>
 A maioria dos participantes não conhecia o conceito de TI Verde antes da pesquisa.
-Após o acesso ao site, relataram ter aprendido algo novo.
+Após acessar o site, relataram ter aprendido sobre sustentabilidade na tecnologia.
+</p>
+
+<h2>🔎 Reflexão</h2>
+<p>
+Os resultados mostram a importância da educação digital como ferramenta de
+conscientização ambiental dentro da área de Tecnologia da Informação.
 </p>
 </section>
 
