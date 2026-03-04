@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body { font-family: Arial; background: #f4f9f4; text-align: center; }
+canvas { max-width: 600px; margin: 30px auto; }
+</style>
+</head>
+<body>
+
+<h1>📊 Resultados da Pesquisa</h1>
+
+<canvas id="grafico"></canvas>
+
+<script>
+const ctx = document.getElementById('grafico');
+new Chart(ctx, {
+type: 'bar',
+data: {
+labels: ['Conhecia TI Verde', 'Não Conhecia'],
+datasets: [{
+label: 'Participantes',
+data: [2, 3],
+}]
+}
+});
+</script>
+
+<section>
+<h2>Análise</h2>
+<p>
+A maioria dos participantes não conhecia o conceito de TI Verde antes da pesquisa.
+Após o acesso ao site, relataram ter aprendido algo novo.
+</p>
+</section>
+
+</body>
+</html>
