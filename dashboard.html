@@ -2,49 +2,61 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Dashboard - Green Tech</title>
-
+<title>Dashboard | Green Tech</title>
+<link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: white;
-    text-align: center;
-}
-
-h1 {
-    margin-top: 40px;
-    color: #00ff88;
-}
-
-canvas {
-    max-width: 600px;
-    margin: 40px auto;
-    display: block;
-}
-
-section {
-    max-width: 800px;
-    margin: auto;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 25px;
-    border-radius: 15px;
-}
-
-h2 {
-    color: #1de9b6;
-}
-</style>
 </head>
 
 <body>
 
-<h1>📊 Resultados da Pesquisa</h1>
+<header>
+<h1>📊 Dashboard de Resultados</h1>
+<p>Análise dos Dados da Pesquisa Aplicada</p>
+</header>
 
+<nav>
+<a href="index.html">Início</a>
+<a href="ods.html">ODS</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="pesquisa.html">Pesquisa</a>
+</nav>
+
+<div class="container">
+
+<div class="card">
+<h2>Resultados da Pesquisa</h2>
 <canvas id="grafico"></canvas>
+</div>
+
+<div class="card">
+<h2>Análise dos Dados</h2>
+<p>
+Os dados coletados demonstram que a maioria dos participantes não possuía
+conhecimento prévio sobre TI Verde. Após o acesso ao site,
+relataram maior compreensão sobre sustentabilidade tecnológica.
+</p>
+
+<p>
+Isso evidencia a importância de iniciativas educativas digitais
+como ferramenta de conscientização ambiental.
+</p>
+</div>
+
+<div class="card">
+<h2>Impacto Educacional</h2>
+<p>
+A aplicação da pesquisa mostrou que a informação, quando apresentada
+de forma clara e organizada, contribui diretamente para o aprendizado.
+Projetos digitais podem ser ferramentas estratégicas na promoção
+da sustentabilidade.
+</p>
+</div>
+
+</div>
+
+<footer>
+Projeto Acadêmico | 2025
+</footer>
 
 <script>
 const ctx = document.getElementById('grafico');
@@ -54,27 +66,39 @@ new Chart(ctx, {
     data: {
         labels: ['Conheciam TI Verde', 'Não Conheciam'],
         datasets: [{
-            label: 'Participantes',
+            label: 'Quantidade de Participantes',
             data: [2, 3],
-            backgroundColor: ['#00ff88', '#1de9b6']
+            backgroundColor: [
+                'rgba(34,197,94,0.8)',
+                'rgba(22,163,74,0.8)'
+            ],
+            borderRadius: 8
         }]
+    },
+    options: {
+        plugins: {
+            legend: {
+                labels: {
+                    color: '#e2e8f0'
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: {
+                    color: '#e2e8f0'
+                }
+            },
+            y: {
+                ticks: {
+                    color: '#e2e8f0'
+                },
+                beginAtZero: true
+            }
+        }
     }
 });
 </script>
-
-<section>
-<h2>📈 Análise dos Resultados</h2>
-<p>
-A maioria dos participantes não conhecia o conceito de TI Verde antes da pesquisa.
-Após acessar o site, relataram ter aprendido sobre sustentabilidade na tecnologia.
-</p>
-
-<h2>🔎 Reflexão</h2>
-<p>
-Os resultados mostram a importância da educação digital como ferramenta de
-conscientização ambiental dentro da área de Tecnologia da Informação.
-</p>
-</section>
 
 </body>
 </html>
